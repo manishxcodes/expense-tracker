@@ -16,8 +16,8 @@ app.get('/test', c => {
     return c.json({message: "test route"});
 });
 
-const apiRoutes = app.basePath("/api").route("/expenses", expensesRoute);
+app.route('/api/expenses', expensesRoute);
 
 export default app;
-export type ApiRoutes = typeof apiRoutes;
+export type ApiRoutes = typeof app;
 
