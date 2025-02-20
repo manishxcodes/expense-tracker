@@ -7,16 +7,15 @@ type Expense = z.infer<typeof expenseSchema>;
 const expenseSchema = z.object({
     id: z.number().positive(),
     title: z.string().min(3).max(15),
-    category: z.string().min(3).max(15),
     amount: z.number().positive()
 })
 
 const createPostSchema = expenseSchema.omit({id: true});
 
 const fakeExpenses: Expense[] = [
-    {id: 1, title: 'groceries',category: "groceries", amount: 490},
-    {id: 2, title: 'food', category: "food", amount: 500},
-    {id: 3, title: 'clothes', category: "clothes", amount: 3000},
+    {id: 1, title: 'groceries',amount: 490},
+    {id: 2, title: 'food', amount: 500},
+    {id: 3, title: 'clothes', amount: 3000},
 ];
 
 export const expensesRoute = new Hono()
